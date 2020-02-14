@@ -1,6 +1,6 @@
 
 export abstract class Payment {
-  abstract execute(payment: object, user: string): void;
+  protected abstract execute(payment: object, user: string): void;
 
   public pay(userId: string) {
     this.verifyUser(userId);
@@ -26,13 +26,13 @@ export abstract class Payment {
 }
 
 export class Paypal extends Payment {
-  public execute(payment: object, user: string): void {
+  protected execute(payment: object, user: string): void {
     console.log('calling paypal api');
   }
 }
 
 export class Ingenico extends Payment {
-  public execute(payment: object, user: string): void {
+  protected execute(payment: object, user: string): void {
     console.log('calling Ingenico api');
   }
 }
